@@ -8,6 +8,7 @@ const cors = require('cors');
 const productRoute = require('./routes/productRoutes')
 const orderRoute = require('./routes/orderRoutes');
 const errorHandler = require('./middleware/errorHandler');
+const authJwt = require('./helpers/jwt');
  require('dotenv').config()
  
 //  dotenv.config();
@@ -42,6 +43,8 @@ async function connect(){
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
+app.use(authJwt());
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use("/api/user", userRoute);
 app.use("/api/category", categoryRoute);
 app.use("/api/order", orderRoute);
