@@ -1,4 +1,11 @@
+require('dotenv').config()
 const express = require('express');
+const cors = require('cors');
+const productRoute = require('./routes/productRoutes')
+const orderRoute = require('./routes/orderRoutes');
+const cors = require('cors');
+const productRoute = require('./routes/productRoutes')
+const orderRoute = require('./routes/orderRoutes');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -7,9 +14,8 @@ const categoryRoute = require('./routes/categoryRoutes');
 const cors = require('cors');
 const productRoute = require('./routes/productRoutes')
 const orderRoute = require('./routes/orderRoutes');
-const errorHandler = require('./middleware/errorHandler');
+const errorHandler = require('./middleware/errorHandler');fionafiona
 const authJwt = require('./helpers/jwt');
- require('dotenv').config()
  
 //  dotenv.config();
 
