@@ -9,6 +9,7 @@ router.get("/:id", getUser);
 router.post("/loginUser", loginUser);
 router.get("/", getUsers);
 router.post("/registerUser",registerUser);
+router.get('/countUsers', countUsers);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 router.get("/currentUser",validateToken, currentUser);

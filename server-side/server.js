@@ -1,4 +1,11 @@
+require('dotenv').config()
 const express = require('express');
+const cors = require('cors');
+const productRoute = require('./routes/productRoutes')
+const orderRoute = require('./routes/orderRoutes');
+const cors = require('cors');
+const productRoute = require('./routes/productRoutes')
+const orderRoute = require('./routes/orderRoutes');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -7,8 +14,8 @@ const categoryRoute = require('./routes/categoryRoutes');
 const cors = require('cors');
 const productRoute = require('./routes/productRoutes')
 const orderRoute = require('./routes/orderRoutes');
-const errorHandler = require('./middleware/errorHandler');
- require('dotenv').config()
+const errorHandler = require('./middleware/errorHandler');fionafiona
+const authJwt = require('./helpers/jwt');
  
 //  dotenv.config();
 
@@ -42,6 +49,8 @@ async function connect(){
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
+app.use(authJwt());
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use("/api/user", userRoute);
 app.use("/api/category", categoryRoute);
 app.use("/api/order", orderRoute);
